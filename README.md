@@ -5,6 +5,10 @@
 In the ```infrastructure``` folder are all resources specified to get the following setup running in AWS.
 It includes a ```VPC```, ```Public subnet```, ```Private subnet```, ```Internet Gateway (IGW)```, ```NAT```, ```Bastion Host``` in the Public subnet and 
 three machines in the Private subnet.
+The setup follow best practices, the nodes of the k8s cluster will be created in the private subnet only.
+The nodes can connect to the internet via a NAT which is placed in the Public subnet and connected to the IGW.
+The Bastion Host allows to connect to the k8s nodes in a secure way via ssh, without exposing the k8s to the internet.
+This is important, as the k8s nodes need to open several ports to make k8s running.
 
 *Note:* Not all resources (e.g. Route Tables, Key Pair, etc.) are not showed in this architecture
 
