@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "us-east-1"
   access_key = "XXX"
-  secret_key = "XXX"shared_credentials_file = ""
+  secret_key = "XXX"
 }
 
 
