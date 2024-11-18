@@ -13,7 +13,7 @@ This is important, as the k8s nodes need to open several ports to make k8s runni
 *Note:* Not all resources (e.g. Route Tables, Key Pair, etc.) are not showed in this architecture
 
 <p align="center">
-<img src="./assets/aws-k8s.cluster.drawio.png" alt=""/>
+<img src="./assets/aws-k8s-cluster.drawio.png" alt=""/>
 </p>
 
 ## Set up the k8s cluster
