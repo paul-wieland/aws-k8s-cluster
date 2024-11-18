@@ -1,0 +1,7 @@
+aws-k8s-cluster.iml
+.idea
+
+infrastructure/.terraform
+infrastructure/.terraform.lock.hcl
+infrastructure/terraform.tfstate
+infrastructure/terraform.tfstate.backup
