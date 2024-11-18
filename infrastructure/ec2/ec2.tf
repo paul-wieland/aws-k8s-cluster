@@ -15,7 +15,7 @@ resource "aws_instance" "node" {
   subnet_id                   = var.subnet_id
   associate_public_ip_address = var.associate_public_ip_address
   vpc_security_group_ids      = var.security_group_ids
-  key_name = var.key_name
+  key_name                    = var.key_name
   tags = {
     Name = format("%s-%02d", var.label_name, count.index)
   }
