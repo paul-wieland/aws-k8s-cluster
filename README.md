@@ -41,3 +41,9 @@ Use the bastion host as a proxy to jump forward to the private hosts within the 
 ```angular2html
 ssh -i ssh_key -o ProxyCommand="ssh -i ssh_key -W %h:%p ec2-user@<BASTION_HOST_PUBLIC_IP>" ec2-user@<PRIVATE_HOST_PRIVATE_IP>
 ```
+
+
+#### Links
+
+- [Terraform Icons](https://github.com/kubernetes/community/tree/master/icons)
+- [AWS Architecture Icons](https://aws.amazon.com/architecture/icons/)
