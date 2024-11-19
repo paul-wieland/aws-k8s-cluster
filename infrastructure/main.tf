@@ -99,9 +99,9 @@ module "allow_all_egress" {
 
 #-------------------------------------------------------------------
 module "ssh_key" {
-  source = "./key_pair"
-  key_name = "ssh-key"
-  public_key_path = "./ssh_key.pub"
+  source          = "./key_pair"
+  key_name        = "ssh-key"
+  public_key_path = "../keys/ssh_key.pub"
 }
 #-------------------------------------------------------------------
 module "control_plane" {
@@ -109,7 +109,7 @@ module "control_plane" {
   label_name                  = "control-plane"
   subnet_id                   = module.private_subnet.subnet_id
   associate_public_ip_address = false
-  key_name = module.ssh_key.key_name
+  key_name                    = module.ssh_key.key_name
   security_group_ids = [
     module.allow_ingress_ssh.id,
     module.allow_all_egress.id
@@ -123,7 +123,7 @@ module "worker" {
   instance_count              = 1
   subnet_id                   = module.private_subnet.subnet_id
   associate_public_ip_address = false
-  key_name = module.ssh_key.key_name
+  key_name                    = module.ssh_key.key_name
   security_group_ids = [
     module.allow_ingress_ssh.id,
     module.allow_all_egress.id
@@ -136,11 +136,26 @@ module "bastion_host" {
   label_name                  = " bastion-host"
   subnet_id                   = module.public_subnet.subnet_id
   associate_public_ip_address = true
-  key_name = module.ssh_key.key_name
+  key_name                    = module.ssh_key.key_name
   security_group_ids          = [module.allow_ingress_ssh.id, module.allow_all_egress.id]
   depends_on = [module.public_subnet,
     module.allow_all_egress,
     module.allow_ingress_ssh,
     module.ssh_key
   ]
+}
+
+#-------------------------------------------------------------------
+
+resource "local_file" "hosts" {
+  content = templatefile("../templates/hosts.tpl",
+    {
+      cluster_name            = module.vpc.cluster_name
+      control_plane_instances = module.control_plane.instances
+      worker_instances        = module.control_plane.instances
+      bastion_user            = "ec2-user"
+      bastion_ip              = module.bastion_host.instances[0].public_ip
+    }
+  )
+  filename = "../generated/hosts.ini"
 }
