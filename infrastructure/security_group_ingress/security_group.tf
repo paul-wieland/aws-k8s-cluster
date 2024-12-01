@@ -9,9 +9,12 @@ resource "aws_security_group" "security_group" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_tls_ipv4" {
+  count = length(var.rules)
+
   security_group_id = aws_security_group.security_group.id
-  cidr_ipv4         = var.cidr_ipv4
-  from_port         = var.from_port
-  ip_protocol       = var.protocol
-  to_port           = var.to_port
+  description       = var.rules[count.index].description
+  cidr_ipv4         = var.rules[count.index].cidr_ipv4
+  from_port         = var.rules[count.index].from_port
+  ip_protocol       = var.rules[count.index].ip_protocol
+  to_port           = var.rules[count.index].to_port
 }

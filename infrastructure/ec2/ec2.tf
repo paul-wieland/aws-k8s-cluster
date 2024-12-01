@@ -8,9 +8,19 @@ data "aws_ami" "amzn-linux-2023-ami" {
   }
 }
 
+data "aws_ami" "ubuntu_24_04" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = [var.ami_name]
+  }
+}
+
 resource "aws_instance" "node" {
   count                       = var.instance_count
-  ami                         = data.aws_ami.amzn-linux-2023-ami.id
+  ami                         = data.aws_ami.ubuntu_24_04.id
   instance_type               = var.instance_size
   subnet_id                   = var.subnet_id
   associate_public_ip_address = var.associate_public_ip_address

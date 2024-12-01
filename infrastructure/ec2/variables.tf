@@ -6,7 +6,7 @@ variable "instance_count" {
 
 variable "instance_size" {
   description = "Instance size"
-  default     = "t2.micro"
+  type        = string
 }
 
 variable "label_name" {
@@ -30,5 +30,10 @@ variable "security_group_ids" {
 
 variable "key_name" {
   description = "Name of the key"
+  type        = string
+}
+
+variable "ami_name" {
+  description = "AMI used for the EC2 instance"
   type        = string
 }

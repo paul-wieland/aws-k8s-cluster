@@ -1,6 +1,6 @@
 ---
 # file: worker.yml
-- hosts: worker
+- hosts: control_plane
   become: True
   vars:
     user: ubuntu
@@ -9,9 +9,10 @@
     kubernetes_version: 1.22.0-00
     keadm_version: 1.6.2
     keadm_host_os: linux-amd64
+    kubectl_version: v1.31.3
     k8s_url_apt_key: https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key
     k8s_gpgpath: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
     k8s_repository: https://pkgs.k8s.io/core:/stable:/v1.31/deb/
   roles:
      - role: k8s-tools
-     - role: k8s-worker
+     - role: k8s-control-plane

@@ -13,23 +13,13 @@ variable "security_group_description" {
   type        = string
 }
 
-variable "cidr_ipv4" {
-  description = "Affected IP range"
-  type        = string
-}
 
-variable "from_port" {
-  description = "From Port"
-  type        = number
-}
-
-variable "to_port" {
-  description = "To Port"
-  type        = number
-}
-
-variable "protocol" {
-  description = "Protocol"
-  type        = string
-  default     = "tcp"
+variable "rules" {
+  type = list(object({
+    cidr_ipv4   = string
+    from_port   = string
+    to_port     = string
+    ip_protocol = string
+    description = string
+  }))
 }
