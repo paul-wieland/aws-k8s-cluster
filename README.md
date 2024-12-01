@@ -16,13 +16,45 @@ This is important, as the k8s nodes need to open several ports to make k8s runni
 <img src="./assets/aws-k8s-cluster.drawio.png" alt=""/>
 </p>
 
-## Set up the k8s cluster
+## Install k8s cluster
 
 ### Generate ssh key pair
 
+Create a new ssh keypair in ```./keys```  named ```ssh```.  Note that 
+the Ansible setup expects the key with that name and location.
+
 ```angular2html
-ssh-keygen -t rsa -b 2048 -f ssh_key
+ssh-keygen -t rsa -b 2048 -f ./keys/ssh_key
 ```
+
+### Create infrastructure
+
+Create an AWS user for the Terraform setup. Go to ```IAM > Users > Create User``` and crate a new user with
+```AdministratorAccess``` permissions. 
+
+
+<p align="center">
+<img src="./assets/aws-terraform-user-permission.png" alt=""/>
+</p>
+
+Then, go to ```./infrastructure/main.tf``` and replace ```access_key``` and ```secret_key``` from your new account.
+
+```terraform
+provider "aws" {
+  region     = var.region
+  access_key = "XXX"
+  secret_key = "XXX"
+}
+```
+
+Once this is done, you can create the infrastructure:
+
+```terraform
+terrafrom apply
+```
+**Note: You can further configure the infrastructure setup in ```variables.tf``` (e.g. change the region)**
+
+
 
 ### 
 
@@ -41,6 +73,8 @@ Use the bastion host as a proxy to jump forward to the private hosts within the 
 ```angular2html
 ssh -i ssh_key -o ProxyCommand="ssh -i ssh_key -W %h:%p ec2-user@<BASTION_HOST_PUBLIC_IP>" ec2-user@<PRIVATE_HOST_PRIVATE_IP>
 ```
+
+ssh -i ssh_key -o ProxyCommand="ssh -i ssh_key -W %h:%p ubuntu@34.224.63.197" ubuntu@10.0.1.88
 
 
 #### Links
