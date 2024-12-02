@@ -1,19 +1,22 @@
 # K8s cluster on AWS
 
-### Cloud Infrastructure
+## Infrastructure
 
-In the ```infrastructure``` folder are all resources specified to get the following setup running in AWS.
-It includes a ```VPC```, ```Public subnet```, ```Private subnet```, ```Internet Gateway (IGW)```, ```NAT```, ```Bastion Host``` in the Public subnet and 
-three machines in the Private subnet.
-The setup follow best practices, the nodes of the k8s cluster will be created in the private subnet only.
-The nodes can connect to the internet via a NAT which is placed in the Public subnet and connected to the IGW.
-The Bastion Host allows to connect to the k8s nodes in a secure way via ssh, without exposing the k8s to the internet.
-This is important, as the k8s nodes need to open several ports to make k8s running.
+The infrastructure is based on AWS and all resources are describes in Terraform.
+The default setup creates a ```VPC``` for all the resources as ```Public subnet```, ```Private subnet```, ```Internet Gateway (IGW)```, ```NAT```, ```EC2 Machines```, etc.
+The ```EC2 Machines``` for the k8s cluster will be deployed to the ```Private Subnet``` to keep them protected.
+They can be accessed via ```ssh``` from the ```Bastion Host```.
 
 *Note:* Not all resources (e.g. Route Tables, Key Pair, etc.) are not showed in this architecture
 
 <p align="center">
 <img src="./assets/aws-k8s-cluster.drawio.png" alt=""/>
+</p>
+
+## K8s cluster overview
+
+<p align="center">
+<img src="./assets/k8s-cluster.png" alt=""/>
 </p>
 
 ## Install k8s cluster
@@ -79,12 +82,12 @@ ansible-playbook -i ../generated/inventory.ini worker.yml
 
 ***Bastion host***
 ```angular2html
-ssh -i ssh_key ec2-user@<BASTION_HOST_PUBLIC_IP>
+ssh -i ssh_key ubuntu@<BASTION_HOST_PUBLIC_IP>
 ```
 
 ***Private host via Bastion host***
 ```angular2html
-ssh -i ssh_key -o ProxyCommand="ssh -i ssh_key -W %h:%p ec2-user@<BASTION_HOST_PUBLIC_IP>" ec2-user@<PRIVATE_HOST_PRIVATE_IP>
+ssh -i ssh_key -o ProxyCommand="ssh -i ssh_key -W %h:%p ubuntu@<BASTION_HOST_PUBLIC_IP>" ubuntu@<PRIVATE_HOST_PRIVATE_IP>
 ```
 
 ***Note: you can find the IP address of the hosts either in ```./generated/invetory.ini``` or simply look it up in the AWS console***
