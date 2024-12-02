@@ -88,7 +88,7 @@
         <mxCell id="Ln_kKYinRdLxvM4SbcaW-51" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Node 2&lt;/b&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="735" y="425.58" width="70" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Ln_kKYinRdLxvM4SbcaW-53" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Ln_kKYinRdLxvM4SbcaW-53" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#999999;" vertex="1" parent="1">
           <mxGeometry x="360" y="574" width="230" height="106" as="geometry" />
         </mxCell>
         <mxCell id="Ln_kKYinRdLxvM4SbcaW-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ln_kKYinRdLxvM4SbcaW-15" target="Ln_kKYinRdLxvM4SbcaW-53">
@@ -106,7 +106,7 @@
         <mxCell id="Ln_kKYinRdLxvM4SbcaW-67" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://github.com/kubernetes/community/blob/master/icons/png/resources/labeled/pod-128.png?raw=true;" vertex="1" parent="1">
           <mxGeometry x="530" y="585" width="50" height="48.83" as="geometry" />
         </mxCell>
-        <mxCell id="Ln_kKYinRdLxvM4SbcaW-75" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Ln_kKYinRdLxvM4SbcaW-75" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#999999;" vertex="1" parent="1">
           <mxGeometry x="655" y="574" width="230" height="106" as="geometry" />
         </mxCell>
         <mxCell id="Ln_kKYinRdLxvM4SbcaW-72" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://static-00.iconduck.com/assets.00/kubernetes-icon-2048x1995-r1q3f8n7.png;" vertex="1" parent="1">
