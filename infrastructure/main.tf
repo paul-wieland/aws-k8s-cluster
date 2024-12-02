@@ -185,8 +185,8 @@ module "bastion_host" {
 
 #-------------------------------------------------------------------
 
-resource "local_file" "hosts" {
-  content = templatefile("../templates/hosts.tpl",
+resource "local_file" "inventory" {
+  content = templatefile("../templates/inventory.tpl",
     {
       cluster_name            = module.vpc.cluster_name
       control_plane_instances = module.control_plane.instances
@@ -195,5 +195,5 @@ resource "local_file" "hosts" {
       bastion_ip              = module.bastion_host.instances[0].public_ip
     }
   )
-  filename = "../generated/hosts.ini"
+  filename = "../generated/inventory.ini"
 }

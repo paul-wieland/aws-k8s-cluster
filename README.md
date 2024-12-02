@@ -18,7 +18,7 @@ This is important, as the k8s nodes need to open several ports to make k8s runni
 
 ## Install k8s cluster
 
-### Generate ssh key pair
+### 1. Generate ssh key pair
 
 Create a new ssh keypair in ```./keys```  named ```ssh```.  Note that 
 the Ansible setup expects the key with that name and location.
@@ -27,7 +27,7 @@ the Ansible setup expects the key with that name and location.
 ssh-keygen -t rsa -b 2048 -f ./keys/ssh_key
 ```
 
-### Create infrastructure
+### 2. Create infrastructure
 
 Create an AWS user for the Terraform setup. Go to ```IAM > Users > Create User``` and crate a new user with
 ```AdministratorAccess``` permissions. 
@@ -52,9 +52,26 @@ Once this is done, you can create the infrastructure:
 ```terraform
 terrafrom apply
 ```
+
+After the resources have been successfully created the inventory file can be found in ```./generated/inventory.ini```.  
+
 **Note: You can further configure the infrastructure setup in ```variables.tf``` (e.g. change the region)**
 
+### 3. Install k8s cluster with Ansible
 
+**Control Plane**
+
+```
+ansible-playbook -i ../generated/inventory.ini control-plane.yml
+```
+
+**Note: The setup for the control plane will output ```./ansible/kubernetes_join_command``` for the worker nodes to join**
+
+**Worker**
+
+```
+ansible-playbook -i ../generated/inventory.ini worker.yml
+```
 
 ### 
 
