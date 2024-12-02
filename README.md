@@ -89,8 +89,14 @@ ssh -i ssh_key -o ProxyCommand="ssh -i ssh_key -W %h:%p ec2-user@<BASTION_HOST_P
 
 ***Note: you can find the IP address of the hosts either in ```./generated/invetory.ini``` or simply look it up in the AWS console***
 
+## Features
 
-#### Links
+- [x] Enable k8s cluster setup on AWS
+- [ ] Expose services (e.g. use API Gateway) 
+- [ ] Enable Cluster Autoscaler 
+- [ ] Enable multi AZ deployment of the k8s cluster
+
+## Links
 
 - [Terraform Icons](https://github.com/kubernetes/community/tree/master/icons)
 - [AWS Architecture Icons](https://aws.amazon.com/architecture/icons/)
