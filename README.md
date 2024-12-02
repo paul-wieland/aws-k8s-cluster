@@ -73,25 +73,21 @@ ansible-playbook -i ../generated/inventory.ini control-plane.yml
 ansible-playbook -i ../generated/inventory.ini worker.yml
 ```
 
-### 
 
-### Manually connect to EC2 instances
+## Manually connect to EC2 instances
 
-#### Connect to bastion host
 
+***Bastion host***
 ```angular2html
 ssh -i ssh_key ec2-user@<BASTION_HOST_PUBLIC_IP>
 ```
 
-#### Connect to private host via bastion host
-
-Use the bastion host as a proxy to jump forward to the private hosts within the private subnet
-
+***Private host via Bastion host***
 ```angular2html
 ssh -i ssh_key -o ProxyCommand="ssh -i ssh_key -W %h:%p ec2-user@<BASTION_HOST_PUBLIC_IP>" ec2-user@<PRIVATE_HOST_PRIVATE_IP>
 ```
 
-ssh -i ssh_key -o ProxyCommand="ssh -i ssh_key -W %h:%p ubuntu@34.224.63.197" ubuntu@10.0.1.88
+***Note: you can find the IP address of the hosts either in ```./generated/invetory.ini``` or simply look it up in the AWS console***
 
 
 #### Links
