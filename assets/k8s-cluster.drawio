@@ -115,7 +115,7 @@
         <mxCell id="Ln_kKYinRdLxvM4SbcaW-73" value="" style="group" vertex="1" connectable="0" parent="1">
           <mxGeometry x="774" y="480" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="Ln_kKYinRdLxvM4SbcaW-28" value="&amp;nbsp;kube-proxy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;" vertex="1" parent="Ln_kKYinRdLxvM4SbcaW-73">
+        <mxCell id="Ln_kKYinRdLxvM4SbcaW-28" value="&amp;nbsp;kube-proxy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=none;align=left;" vertex="1" parent="Ln_kKYinRdLxvM4SbcaW-73">
           <mxGeometry width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Ln_kKYinRdLxvM4SbcaW-29" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://github.com/kubernetes/community/blob/master/icons/png/control_plane_components/labeled/kubelet-128.png?raw=true;" vertex="1" parent="Ln_kKYinRdLxvM4SbcaW-73">
@@ -124,7 +124,7 @@
         <mxCell id="Ln_kKYinRdLxvM4SbcaW-74" value="" style="group" vertex="1" connectable="0" parent="1">
           <mxGeometry x="480" y="480" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="Ln_kKYinRdLxvM4SbcaW-15" value="&amp;nbsp;kube-proxy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;" vertex="1" parent="Ln_kKYinRdLxvM4SbcaW-74">
+        <mxCell id="Ln_kKYinRdLxvM4SbcaW-15" value="&amp;nbsp;kube-proxy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=none;align=left;" vertex="1" parent="Ln_kKYinRdLxvM4SbcaW-74">
           <mxGeometry width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Ln_kKYinRdLxvM4SbcaW-16" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://github.com/kubernetes/community/blob/master/icons/png/control_plane_components/labeled/kubelet-128.png?raw=true;" vertex="1" parent="Ln_kKYinRdLxvM4SbcaW-74">
