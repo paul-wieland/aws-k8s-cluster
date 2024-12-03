@@ -19,6 +19,23 @@ They can be accessed via ```ssh``` from the ```Bastion Host```.
 <img src="./assets/k8s-cluster.png" alt=""/>
 </p>
 
+The project is using [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+to set up the k8s cluster. 
+
+**Control Plane**
+
+- **kube-api-server** provides API to access the k8s cluster
+- **etcd** is a key-value store for cluster configuration and state
+- **scheduler** is responsible to place pods efficiently on nodes
+- **kube-controller-manager** hold core control loop to bring cluster state into desired state (nodes, pods, replicas, etc.)
+
+**Node**
+
+- **kubelet** is the primary node agent that runs on every node
+- **kube-proxy** runs on each node and manages network communication. 
+- **CRI** stands for ***Container Runtime Interface*** and is a specification to run containers. This setup uses [containerd](https://containerd.io/) as container runtime which implements the CRI
+- **[flannel](https://github.com/flannel-io/flannel)** is the default CNI plugin
+
 ## Install k8s cluster
 
 ### 1. Generate ssh key pair
